@@ -10,7 +10,7 @@
 
 ## 下载地址
 
-* 下载地址：
+* 下载地址：https://github.com/UncleCatMySelf/ssmnetty/releases
 
 ## 快速使用与说明
 
@@ -18,7 +18,7 @@
 
 ## 交流与提问
 
-提问与Bug上报：
+提问与Bug上报：https://github.com/UncleCatMySelf/ssmnetty/issues
 
 QQ群：628793702（仅供交流，不提供问题解答）
 
