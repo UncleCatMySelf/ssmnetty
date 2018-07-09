@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myself.dao.HouseChannelMapper" >
+  <resultMap id="BaseResultMap" type="com.myself.pojo.HouseChannel" >
+    <constructor >
+      <idArg column="house_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="channel_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="locks" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pstates" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="power" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="state" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    house_id, channel_id, locks, pstates, power, state, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from house_channel
+    where house_id = #{houseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from house_channel
+    where house_id = #{houseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myself.pojo.HouseChannel" >
+    insert into house_channel (house_id, channel_id, locks, pstates,
+      power, state, create_time, 
+      update_time)
+    values (#{houseId,jdbcType=INTEGER}, #{channelId,jdbcType=VARCHAR}, #{locks,jdbcType=VARCHAR}, #{pstates,jdbcType=VARCHAR},
+      #{power,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, now(),
+      now())
+  </insert>
+  <insert id="insertSelective" parameterType="com.myself.pojo.HouseChannel" >
+    insert into house_channel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="houseId != null" >
+        house_id,
+      </if>
+      <if test="channelId != null" >
+        channel_id,
+      </if>
+      <if test="locks != null" >
+        locks,
+      </if>
+      <if test="pstates != null" >
+        pstates,
+      </if>
+      <if test="power != null" >
+        power,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="houseId != null" >
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="channelId != null" >
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="locks != null" >
+        #{locks,jdbcType=VARCHAR},
+      </if>
+      <if test="pstates != null" >
+        #{pstates,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null" >
+        #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        now(),
+      </if>
+      <if test="updateTime != null" >
+        now(),
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myself.pojo.HouseChannel" >
+    update house_channel
+    <set >
+      <if test="channelId != null" >
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="locks != null" >
+        locks = #{locks,jdbcType=VARCHAR},
+      </if>
+      <if test="pstates != null" >
+        pstates = #{pstates,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null" >
+        power = #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = now(),
+      </if>
+    </set>
+    where house_id = #{houseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myself.pojo.HouseChannel" >
+    update house_channel
+    set channel_id = #{channelId,jdbcType=VARCHAR},
+      locks = #{locks,jdbcType=VARCHAR},
+      pstates = #{pstates,jdbcType=VARCHAR},
+      power = #{power,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = now()
+    where house_id = #{houseId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByChannelId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from house_channel
+    where channel_id = #{channelId,jdbcType=VARCHAR}
+  </select>
+</mapper>
