@@ -22,6 +22,8 @@
 
 QQ群：628793702（仅供交流，不提供问题解答）
 
+TIP：Q群提供ssmnetty外网模拟TCP通信测试工具
+
 ## 关于作者
 
 博客园：https://www.cnblogs.com/UncleCatMySelf/
