@@ -1,5 +1,7 @@
 # SSMNetty
 
+## 当前项目已经迁移到[InChat](https://github.com/UncleCatMySelf/InChat)，将构建成一个通讯框架。
+
 ## 简介
 
 基于SSM通用框架搭配Netty的后台通信协同，本项目Demo实现与单片机的TCP通信
